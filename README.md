@@ -2,6 +2,18 @@
 
 一个架空世界构建项目,包含文档、模板、地图生成器和图片资源。
 
+## 仓库
+
+以 **GitCode** 为主远程,各仓库地址:
+
+| 组件 | 仓库 |
+|---|---|
+| 主仓库 | <https://gitcode.com/CrossDark/UnderHell.git> |
+| 文档 | <https://gitcode.com/CrossDark/UnderHellDocs.git> |
+| 模板 | <https://gitcode.com/CrossDark/UnderHellTemplate.git> |
+| 图片 | <https://gitcode.com/CrossDark/UnderHellImages.git> |
+| 程序 | <https://gitcode.com/CrossDark/UnderHellCodes.git> |
+
 ## 项目结构
 
 本仓库使用 Git Submodule 管理各组件:
@@ -82,8 +94,8 @@ GitHub Actions 会在推送 main 分支或打 tag 时自动编译并发布:
 ## 快速开始
 
 ```bash
-# 克隆(含子模块)
-git clone --recursive https://github.com/CrossDark/UnderHell.git
+# 克隆(含子模块,以 GitCode 为主远程)
+git clone --recursive https://gitcode.com/CrossDark/UnderHell.git
 
 # 编译文档
 cd UnderHell/文档

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "skills": {
+    "copywriting": {
+      "source": "smithery.ai",
+      "sourceUrl": "https://smithery.ai/skills/davila7/copywriting",
+      "sourceType": "well-known",
+      "computedHash": "1ee9d840d3d1b64a28cbd60f628708596359400d8c40172ed7eedfc4496ff88e",
+      "wellKnownDigest": "sha256:d0af39ce9111e76146d66e308401696f522ba3388b1e25b8274f0181213246cb"
+    },
+    "smithery-ai-cli": {
+      "source": "smithery.ai",
+      "sourceUrl": "https://smithery.ai/skills/code-yeongyu/git-master",
+      "sourceType": "well-known",
+      "computedHash": "dc17f090c975afe1d96a25dbe843fc9c978e96d5699eed1bb7c12b411e10b830",
+      "wellKnownDigest": "sha256:8991a5cc42c323f513a29aa16ecdb53f03b10cb5f3f33ce02496832c5218bcd5"
+    }
+  }
+}

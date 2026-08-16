@@ -55,3 +55,7 @@ Python/Cython 项目,详见其自带技能:`程序/地图工具/.opencode/skills
 - 文档正文顶层曾出现裸 `#p` 导致编译失败——`#` 后必须是已定义符号。
 - 子模块处于 detached HEAD 时,推送前先 `git checkout main && git merge --ff-only <local-commit>`。
 - 交叉引用标签用中文名或名词元素(ID),引用 `@标签` 需与 `<标签>` 一致。
+
+## 语法规范
+
+参考 文档/地狱之下附录.typ

@@ -20,7 +20,7 @@
 
 ```
 UnderHell/
-├── 文档/          → UnderHellDocs       — Typst 文档源码(地狱之下正文)
+├── 文档/          → UnderHellDocs       — Typst 文档源码 + 名词系统 CSV
 ├── 模板/          → UnderHellTemplate   — 架空世界 Typst 模板(已发布至 Typst Universe)
 ├── 图片/          → UnderHellImages     — 地图、插图等图片资源
 ├── 程序/          → UnderHellCodes      — 地图生成器(CLI + GUI)
@@ -29,13 +29,14 @@ UnderHell/
 
 ## 文档编译
 
-文档使用 [Typst](https://typst.app) 编译,支持三种输出版本:
+文档使用 [Typst](https://typst.app) 编译,支持多种输出版本:
 
 | 版本 | 命令 | 说明 |
 |---|---|---|
 | 普通版 | `make all` | A4 双栏、彩色背景图、深红标题 |
 | 打印版 | `make print` | A4 双栏、无背景图、纯黑标题、宽边距(省墨) |
 | 小屏版 | `make screen` | A5 单栏、保留背景、窄边距、小字号(手机/平板阅读) |
+| 名词系统版 | `make nomen NOMEN=academic` | 指定名词系统编译 |
 
 一次性编译全部三种版本:
 
@@ -47,49 +48,41 @@ cd 文档 && make all print screen
 
 ```bash
 typst compile --root .. --font-path fonts 地狱之下.typ 输出.pdf
-typst compile --root .. --font-path fonts --input print=true 地狱之下.typ 输出.pdf
-typst compile --root .. --font-path fonts --input screen=true 地狱之下.typ 输出.pdf
+typst compile --root .. --font-path fonts --input nomen=academic 地狱之下.typ 输出.pdf
 ```
 
-或使用包装脚本:
+## 名词系统
 
-```bash
-./typst-print --print 地狱之下.typ 输出.pdf
-./typst-print --screen 地狱之下.typ 输出.pdf
+核心概念通过 `#元素("名词")` 引用,不同名词系统(普通/别名/academic)在同一 CSV 中以宽表存储。编译时通过 `--input nomen=xxx` 选择,默认为"普通"(直接返回 ID 本身)。
+
+```csv
+id,别名,academic
+怪物,,
+怪动物,白色怪物,
+怪动植物,黑白怪物,
+超级系统,,生物能量超级系统
 ```
 
 ## 地图生成器
 
-基于断层生长算法的程序化地图生成工具,支持 PNG/SVG 双格式输出。
-
-- **CLI**:命令行版本,支持海岸线、分层设色、经纬网格、切片等功能
-- **GUI**:Qt 图形界面,可视化参数调节与实时预览
-
-```bash
-cd 程序/地图生成器
-cmake -B build-cli -DCMAKE_BUILD_TYPE=Release
-cmake --build build-cli
-./build-cli/地图生成器 42 0 60 512 256 1 output.png
-./build-cli/地图生成器 42 0 60 512 256 1 output.svg --svg
-```
-
-详细用法参见 [程序/README.md](程序/README.md)。
+基于断层生长算法的程序化地图生成工具,支持 PNG/SVG 双格式输出。详细用法参见 [程序/地图工具/.opencode/skills/map-tool/SKILL.md](程序/地图工具/.opencode/skills/map-tool/SKILL.md)。
 
 ## 模板
 
 架空世界 Typst 模板,已发布至 Typst Universe(`@preview/underhell`)。
 
-提供封面、分栏排版、属性方块(statbox)、NPC 卡片(npcbox)、法术卡片(spell)、跨页图片、附录编号等架空世界常用排版功能。
+所有模板函数已中文化: `表格`(uhtab)、`提示框`(breakoutbox)、`属性框`(statbox)、`人物框`(npcbox)、`法术`(spell)、`附录`(appendix)、`顶部图`/`底部图`、`元素`、`品牌` 等。
+
+提供封面、六级差异化标题样式、元素(深红+特殊字体)、名词系统切换、属性方块、NPC 卡片、法术卡片、跨页图片、附录编号等功能。
 
 详细用法参见 [模板/README.md](模板/README.md)。
 
 ## CI/CD
 
-GitHub Actions 会在推送 main 分支或打 tag 时自动编译并发布:
+GitCode Actions 会在推送 main 分支或打 tag 时自动编译并发布:
 
-- 三种 PDF 版本(普通版、打印版、小屏版)
+- 三种 PDF 版本(普通版、打印版、小屏版) + 名词系统版本
 - 地图生成器 CLI(Windows / macOS / Linux)
-- 地图生成器 GUI(Windows / macOS / Linux)
 
 ## 快速开始
 
@@ -101,8 +94,6 @@ git clone --recursive https://gitcode.com/CrossDark/UnderHell.git
 cd UnderHell/文档
 make all print screen
 
-# 编译地图生成器
-cd ../程序/地图生成器
-cmake -B build-cli -DCMAKE_BUILD_TYPE=Release
-cmake --build build-cli
+# 用指定名词系统编译
+make nomen NOMEN=academic
 ```

@@ -20,7 +20,7 @@
 
 ```
 UnderHell/
-├── 文档/          → UnderHellDocs       — Typst 文档源码 + 名词系统 CSV
+├── 文档/          → UnderHellDocs       — Typst 文档源码 + 元素系统 CSV
 ├── 模板/          → UnderHellTemplate   — 架空世界 Typst 模板(已发布至 Typst Universe)
 ├── 图片/          → UnderHellImages     — 地图、插图等图片资源
 ├── 程序/          → UnderHellCodes      — 地图生成器(CLI + GUI)
@@ -36,7 +36,7 @@ UnderHell/
 | 普通版 | `make all` | A4 双栏、彩色背景图、深红标题 |
 | 打印版 | `make print` | A4 双栏、无背景图、纯黑标题、宽边距(省墨) |
 | 小屏版 | `make screen` | A5 单栏、保留背景、窄边距、小字号(手机/平板阅读) |
-| 名词系统版 | `make nomen NOMEN=academic` | 指定名词系统编译 |
+| 元素系统版 | `make 元素系统 元素系统名=academic` | 指定元素系统编译 |
 
 一次性编译全部三种版本:
 
@@ -48,12 +48,12 @@ cd 文档 && make all print screen
 
 ```bash
 typst compile --root .. --font-path fonts 地狱之下.typ 输出.pdf
-typst compile --root .. --font-path fonts --input nomen=academic 地狱之下.typ 输出.pdf
+typst compile --root .. --font-path fonts --input 元素系统=academic 地狱之下.typ 输出.pdf
 ```
 
-## 名词系统
+## 元素系统
 
-核心概念通过 `#元素("名词")` 引用,不同名词系统(普通/别名/academic)在同一 CSV 中以宽表存储。编译时通过 `--input nomen=xxx` 选择,默认为"普通"(直接返回 ID 本身)。
+核心概念通过 `#元素("名词")` 引用,不同元素系统(普通/别名/academic)在同一 CSV 中以宽表存储。编译时通过 `--input 元素系统=xxx` 选择,默认为"普通"(直接返回 ID 本身)。
 
 ```csv
 id,别名,academic
@@ -73,7 +73,7 @@ id,别名,academic
 
 所有模板函数已中文化: `表格`(uhtab)、`提示框`(breakoutbox)、`属性框`(statbox)、`人物框`(npcbox)、`法术`(spell)、`附录`(appendix)、`顶部图`/`底部图`、`元素`、`品牌` 等。
 
-提供封面、六级差异化标题样式、元素(深红+特殊字体)、名词系统切换、属性方块、NPC 卡片、法术卡片、跨页图片、附录编号等功能。
+提供封面、六级差异化标题样式、元素(深红+特殊字体)、元素系统切换、属性方块、NPC 卡片、法术卡片、跨页图片、附录编号等功能。
 
 详细用法参见 [模板/README.md](模板/README.md)。
 
@@ -81,7 +81,7 @@ id,别名,academic
 
 GitCode Actions 会在推送 main 分支或打 tag 时自动编译并发布:
 
-- 三种 PDF 版本(普通版、打印版、小屏版) + 名词系统版本
+- 三种 PDF 版本(普通版、打印版、小屏版) + 元素系统版本
 - 地图生成器 CLI(Windows / macOS / Linux)
 
 ## 快速开始
@@ -94,6 +94,6 @@ git clone --recursive https://gitcode.com/CrossDark/UnderHell.git
 cd UnderHell/文档
 make all print screen
 
-# 用指定名词系统编译
-make nomen NOMEN=academic
+# 用指定元素系统编译
+make 元素系统 元素系统名=academic
 ```

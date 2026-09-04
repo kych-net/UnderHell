@@ -8,7 +8,7 @@
 
 | 路径 | 子仓库 | 内容 |
 |---|---|---|
-| `文档/` | UnderHellDocs | Typst 正文 + 名词系统 CSV |
+| `文档/` | UnderHellDocs | Typst 正文 + 元素系统 CSV |
 | `模板/` | UnderHellTemplate | Typst 模板(已发布 Typst Universe) |
 | `图片/` | UnderHellImages | 地图/插图资源 |
 | `程序/` | UnderHellCodes | 地图生成器(再含 `地图工具`、`网站` 子模块) |
@@ -21,7 +21,7 @@
 make all        # 普通版(默认)
 make print      # --input print=true 省墨双栏
 make screen     # --input screen=true A5 单栏
-make nomen NOMEN=academic   # 指定名词系统
+make 元素系统 元素系统名=academic   # 指定元素系统
 make clean      # rm -rf dist
 ```
 
@@ -31,7 +31,7 @@ make clean      # rm -rf dist
 typst compile --root .. --font-path fonts 地狱之下.typ out.pdf
 ```
 
-## 名词系统(文档/名词系统.csv)
+## 元素系统(文档/元素系统.csv)
 
 - 每个核心概念用 `#元素("正式名")` 引用(普通系统直接读 ID 值本身)。
 - CSV 只需存非普通系统的映射行(列 `id,system,term`),如 `怪动植物,别名,黑白怪物`、`超级系统,academic,生物能量超级系统`。

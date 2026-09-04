@@ -53,7 +53,7 @@ typst compile --root .. --font-path fonts --input 元素系统=academic 地狱�
 
 ## 元素系统
 
-核心概念用"元素"标识,通过 `#元素("ID")` 引用。不同元素系统(普通/别名/academic)在同一 CSV 中以宽表存储。编译时通过 `--input 元素系统=xxx` 选择,默认为"普通"(直接返回 ID 本身)。
+核心概念用"元素"标识,通过 `#元素[ID]` 引用。不同元素系统(普通/别名/academic)在同一 CSV 中以宽表存储。编译时通过 `--input 元素系统=xxx` 选择,默认为"普通"(直接返回 ID 本身)。
 
 ```csv
 id,别名,academic

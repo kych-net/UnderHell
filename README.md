@@ -81,6 +81,7 @@ id,别名,academic
 cd 程序/元素工具
 python3 元素工具.py 扫描              # 查找源文件中的所有元素,标注未收录的
 python3 元素工具.py 补全              # 把缺失元素追加到 元素系统.csv
+python3 元素工具.py 清理              # 查找 CSV 中存在、但文档已删除的元素
 python3 元素工具.py 改名 旧id 新id     # 同步重命名文档引用与 CSV
 ```
 

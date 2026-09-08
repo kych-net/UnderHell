@@ -1,0 +1,64 @@
+name: 同步到 GitHub (每日)
+
+# 每天将主仓库与各子模块的新增提交推送到 GitHub 镜像:
+#   GitCode CrossDark/UnderHell*  ->  github.com/kych-net/UnderHell*
+# 需要 secrets.GH_TOKEN:GitHub PAT(对 kych-net/* 仓库有 push 权限)。
+on:
+  schedule:
+    - cron: "0 1 * * *"   # 每日 UTC 01:00(北京时间 09:00)
+  workflow_dispatch:       # 支持手动触发
+
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  sync:
+    name: 同步 ${{ matrix.name }}
+    runs-on: [ubuntu-latest, x64, small]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # name / subdir(主仓库为 .) / github 仓库
+          - name: 主仓库
+            subdir: "."
+            repo: "github.com/kych-net/UnderHell.git"
+          - name: 文档
+            subdir: "文档"
+            repo: "github.com/kych-net/UnderHellDocs.git"
+          - name: 模板
+            subdir: "模板"
+            repo: "github.com/kych-net/UnderHellTemplate.git"
+          - name: 程序
+            subdir: "程序"
+            repo: "github.com/kych-net/UnderHellCodes.git"
+          - name: 图片
+            subdir: "图片"
+            repo: "github.com/kych-net/UnderHellImages.git"
+    steps:
+      - name: 检出主仓库(含子模块)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          token: ${{ secrets.GITCODE_TOKEN }}
+
+      - name: 配置 Git
+        run: |
+          git config --global user.name "sync-bot"
+          git config --global user.email "sync-bot@kych-net"
+          git config --global --add safe.directory "*"
+
+      - name: 推送到 GitHub(${{ matrix.name }})
+        run: |
+          cd "${{ matrix.subdir }}"
+          if [ "${{ matrix.subdir }}" != "." ]; then
+            # 子模块可能处于 detached HEAD,切回 main
+            git checkout main 2>/dev/null || git checkout -b main
+          fi
+          git remote add github "https://x-access-token:${GH_TOKEN}@${{ matrix.repo }}"
+          git push github main --force-with-lease
+          # 同步 tags(仅主仓库)
+          if [ "${{ matrix.subdir }}" = "." ]; then
+            git push github --tags
+          fi

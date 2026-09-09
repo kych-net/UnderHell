@@ -20,15 +20,13 @@ jobs:
     name: 编译网页并推送 web 分支
     runs-on: ubuntu-latest
     steps:
-      - name: 安装 Git LFS(图片子模块需要)
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq git-lfs
-
-      - name: 检出主仓库(含子模块)
+      - name: 检出主仓库(仅 文档/模板 子模块)
         uses: actions/checkout@v4
         with:
-          submodules: recursive
-          lfs: true
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 初始化所需子模块(文档/模板;忽略 程序/图片)
+        run: git submodule update --init --depth 1 文档 模板
 
       - name: 安装 Typst
         run: |

@@ -7,10 +7,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "文档/**"
-      - "模板/**"
-      - ".github/workflows/build-web.yml"
   workflow_dispatch:
 
 permissions:

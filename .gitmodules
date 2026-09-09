@@ -1,12 +1,12 @@
 [submodule "程序"]
 	path = 程序
-	url = https://gitcode.com/CrossDark/UnderHellCodes.git
+	url = https://github.com/kych-net/UnderHellCodes.git
 [submodule "模板"]
 	path = 模板
-	url = https://gitcode.com/CrossDark/UnderHellTemplate.git
+	url = https://github.com/kych-net/UnderHellTemplate.git
 [submodule "文档"]
 	path = 文档
-	url = https://gitcode.com/CrossDark/UnderHellDocs.git
+	url = https://github.com/kych-net/UnderHellDocs.git
 [submodule "图片"]
 	path = 图片
-	url = https://gitcode.com/CrossDark/UnderHellImages.git
+	url = https://github.com/kych-net/UnderHellImages.git

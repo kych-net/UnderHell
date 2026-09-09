@@ -1,0 +1,54 @@
+name: 发布静态网页 (EdgeOne Pages)
+
+# 编译文档为静态网页(单栏、样式仿 PDF),并发布到腾讯云 EdgeOne Pages。
+# 需要 secrets.EDGEONE_TOKEN:EdgeOne Pages 的 API Token(项目设置中生成)。
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "文档/**"
+      - "模板/**"
+  schedule:
+    - cron: "0 2 * * *"   # 每日 UTC 02:00(北京时间 10:00)与同步任务错开
+  workflow_dispatch:
+
+env:
+  TYPST_VERSION: "0.15.1"
+
+jobs:
+  build-deploy:
+    name: 构建并发布网页
+    runs-on: [ubuntu-latest, x64, small]
+    steps:
+      - name: 检出主仓库(含子模块)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITCODE_TOKEN }}
+
+      - name: 安装 Typst
+        run: |
+          curl -fL "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz" -o /tmp/typst.tar.xz
+          tar -xf /tmp/typst.tar.xz -C /tmp
+          sudo mv /tmp/typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
+          typst --version
+
+      - name: 编译静态网页(make web)
+        working-directory: 文档
+        run: |
+          make web
+          ls -la dist/
+          # HTML 内联全部样式,自包含;重命名为 index.html 便于站点根路径访问
+          cp dist/地狱之下.html dist/index.html
+
+      - name: 部署到 EdgeOne Pages
+        run: |
+          sudo npm i -g edgeone-pages@latest 2>/dev/null || npm i -g edgeone-pages@latest
+          edgeone-pages deploy "文档/dist" \
+            --name "${EDGEONE_SITE:-underhell}" \
+            --region ap-guangzhou \
+            --token "${EDGEONE_TOKEN}"
+        env:
+          EDGEONE_TOKEN: ${{ secrets.EDGEONE_TOKEN }}
+          EDGEONE_SITE: ${{ vars.EDGEONE_SITE }}

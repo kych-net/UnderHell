@@ -1,7 +1,8 @@
 name: 构建静态网页并发布到 web 分支
 
-# 编译文档为静态网页(单栏、样式仿 PDF),把产物提交到 web 分支,
-# 供 EdgeOne Pages 绑定 web 分支直接发布(EO 构建环境缺 xz,本地构建更稳)。
+# 编译文档为静态网页,把产物提交到 web 分支,供 EdgeOne Pages 绑定发布。
+# 标题字体(段宁毛笔小楷)按每次构建**实际用到的字符**动态子集化:
+#   先编译 HTML → 提取标题/元素文本的字符 → fontTools 子集 → 复制到产物。
 on:
   push:
     branches:
@@ -35,11 +36,50 @@ jobs:
           sudo mv /tmp/typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
           typst --version
 
-      - name: 编译静态网页
+      - name: 安装 fontTools(字体子集)
+        run: pip install fonttools brotli
+
+      - name: 编译静态网页(占位 CSS)
         working-directory: 文档
         run: |
           make web
           cp dist/地狱之下.html dist/index.html
+
+      - name: 提取标题字体用字并生成子集
+        run: |
+          python3 - <<'PY'
+          import re, os
+          from pathlib import Path
+          d = Path("文档/dist/index.html").read_text(encoding="utf-8")
+          # 用段宁毛笔小楷的文本:标题 h1-h6 + 元素 span.uh-element + 封面标题
+          parts = re.findall(r"<h[1-6][^>]*>(.*?)</h[1-6]>", d, re.S)
+          parts += re.findall(r'class="uh-element"[^>]*>(.*?)</span>', d, re.S)
+          text = "".join(re.sub(r"<[^>]+>", "", p) for p in parts)
+          chars = sorted(set(text) | set(
+              "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+              ".,;:!?()[]{}“”‘’—…·、。《》〈〉【】±×÷≈°℃%‰+−*/=<>≤≥≠$#@&_~^|\\ "))
+          print("标题字体用字:", len(chars))
+          Path("/tmp/heading_chars.txt").write_text("".join(chars), encoding="utf-8")
+          from fontTools.subset import Subsetter, Options
+          from fontTools.ttLib import TTFont
+          f = TTFont("模板/webfonts/段宁毛笔小楷.ttf")
+          opt = Options(); opt.flavor = "woff2"
+          ss = Subsetter(options=opt); ss.populate(text="".join(chars)); ss.subset(f)
+          out = Path("文档/dist/webfonts"); out.mkdir(parents=True, exist_ok=True)
+          f.save(out / "duan-kaixiao-subset.woff2")
+          print("子集大小:", (out / "duan-kaixiao-subset.woff2").stat().st_size)
+          PY
+
+      - name: 注入 web.css(引用子集字体)
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          p = pathlib.Path("文档/dist/index.html")
+          s = p.read_text(encoding="utf-8")
+          css = pathlib.Path("模板/web.css").read_text(encoding="utf-8")
+          p.write_text(s.replace("/*UH_WEB_CSS*/", css), encoding="utf-8")
+          print("CSS 已注入")
+          PY
 
       - name: 推送到 web 分支
         working-directory: 文档/dist

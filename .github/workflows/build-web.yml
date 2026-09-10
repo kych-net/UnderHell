@@ -40,7 +40,7 @@ jobs:
 
       - name: 编译静态网页(占位 CSS)
         working-directory: 文档
-        run: typst compile --features html --root .. --font-path fonts --input 纲要=false --input web=true --format html 地狱之下.typ dist/index.html
+        run: mkdir -p dist && typst compile --features html --root .. --font-path fonts --input 纲要=false --input web=true --format html 地狱之下.typ dist/index.html
 
       - name: 提取标题字体用字并生成子集
         run: |

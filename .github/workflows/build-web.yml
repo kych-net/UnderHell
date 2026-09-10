@@ -25,12 +25,12 @@ jobs:
           typst --version
           sudo apt-get update -qq && sudo apt-get install -y -qq git-lfs
 
-      - name: 检出主仓库(含子模块与 LFS)
+      - name: 检出主仓库
         uses: actions/checkout@v4
         with:
-          submodules: recursive
-          lfs: true
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: 初始化所需子模块(文档/模板)
+        run: git submodule update --init --depth 1 文档 模板
       - name: 拉取字体(LFS)
         run: git lfs pull
         working-directory: 模板

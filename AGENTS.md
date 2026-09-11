@@ -1,8 +1,13 @@
 # AGENTS.md
 
 所有思考一律使用中文,别管输入的是什么语言。
+
 架空世界构建仓库(地狱之下 / UnderHell)。正文用 Typst,地图生成器用 Python/Cython。
-所有远程托管在 **GitCode**(`gitcode.com/CrossDark/*`),非 GitHub。
+所有远程托管在[GitCode](`gitcode.com/CrossDark/*`)和[GitHub](https://github.com/kych-net/UnderHell)上
+
+大文件用lfs
+
+编码一律用unicode
 
 ## 仓库结构(都是 Git Submodule)
 
@@ -59,6 +64,8 @@ Python/Cython 项目,详见其自带技能:`程序/地图工具/.opencode/skills
 ## 语法规范
 
 参考 文档/地狱之下附录.typ
+
+字数能省就省
 
 中文： 以直陈、白描为基本写法。少用状语、补语和副词，只保留有实际信息的修饰。优先保留原本自然的语言习惯，不为深刻、优美、完整而润色。保持自然的长短句变化，拒绝套用总分总结构，不强行总结或升华。
  反例：「这个方法值得继续研究」不要写成「这个方法还有值得深入挖掘的空间」。

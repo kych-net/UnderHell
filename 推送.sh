@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # 一键推送:主仓库与全部子仓库同步推送到 GitCode(origin)与 GitHub(github)。
+# 推送顺序:先子模块、后主仓库 —— 确保主仓库更新子模块指针的 commit
+# 推送时,其引用的子模块 commit 已在各远端存在;否则 CI 拉子模块时
+# 会因引用不可达而失败("not our ref" / direct fetching that commit failed)。
 # 用法:
 #   ./推送.sh              # 普通推送
 #   ./推送.sh --force      # 强制推送(用于 LFS 迁移等历史重写后)
@@ -11,8 +14,9 @@ export GIT_HTTP_LOW_SPEED_TIME=30
 
 cd "$(dirname "$0")"
 
-# 仓库列表:主仓库 + 子模块
-repos=(. 文档 模板 程序 图片)
+# 仓库列表:主仓库(.)最后推送,子模块(文档 模板 程序 图片)先推。
+# 理由见文件头注释:保证子模块提交先于主仓库指针提交上线。
+repos=(文档 模板 程序 图片 .)
 
 extra=()
 for a in "$@"; do
@@ -40,9 +44,9 @@ for r in "${repos[@]}"; do
     true
   else
   echo "--> GitCode(origin)"
-  git -C "$r" push origin main ${extra[@]+"${extra[@]}"} || echo "  (GitCode 推送失败,继续)"
+  git -C "$r" push --recurse-submodules=on-demand origin main ${extra[@]+"${extra[@]}"} || echo "  (GitCode 推送失败,继续)"
   echo "--> GitHub(github)"
-  git -C "$r" push github main ${extra[@]+"${extra[@]}"} || echo "  (GitHub 推送失败,继续)"
+  git -C "$r" push --recurse-submodules=on-demand github main ${extra[@]+"${extra[@]}"} || echo "  (GitHub 推送失败,继续)"
   fi
 done
 

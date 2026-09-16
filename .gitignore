@@ -7,3 +7,5 @@ build-gui/
 程序/地图生成器/build-*/
 
 .DS_Store
+
+.trae/

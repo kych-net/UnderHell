@@ -1,8 +1,10 @@
 name: 构建静态网页并发布到 web 分支
 
 # 编译文档为静态网页,把产物提交到 web 分支,供 EdgeOne Pages 绑定发布。
-# 标题字体(段宁毛笔小楷,LFS 源)按每次构建实际用到的字符动态子集化:
-#   make web:编译 HTML、注入 web.css/交互脚本、拷贝全字库 woff2 到产物。
+# 四款自托管字体按每次构建实际用到的字符子集化,只保留文章中出现的字
+# (详见"字体子集化"步骤):
+#   make web:编译 HTML、注入 web.css/交互脚本、拷贝全字库 woff2 到产物;
+#   字体子集化:从产物 HTML 提取用字,原地把 woff2 缩成仅含所需字符的子集。
 on:
   push:
     branches:
@@ -38,6 +40,51 @@ jobs:
       - name: 编译网页并注入样式/脚本(make web)
         working-directory: 文档
         run: make web
+
+      # 从产物 HTML 提取本文实际用到的字符,把四款全字库 woff2 原地子集化为
+      # 只含这些字的版本(同名覆盖,web.css 的 @font-face 无需改动)。
+      # 字体缺字(如 ▾ 💬 𝐶)与全字库一致,由浏览器回退到系统字体。
+      - name: 字体子集化(只保留用到的字)
+        working-directory: 文档
+        run: |
+          if ! python3 -c "import fontTools, brotli" 2>/dev/null; then
+            python3 -m pip install --quiet --break-system-packages fonttools brotli \
+              || sudo apt-get install -y -qq python3-fonttools python3-brotli
+          fi
+          python3 - <<'PY'
+          import html, pathlib, subprocess, sys
+
+          dist = pathlib.Path("dist")
+          # 以编译产物 index.html 为准:CSS/交互脚本已注入其中,含其用字
+          text = (dist / "index.html").read_text(encoding="utf-8")
+          chars = set(text) | set(html.unescape(text))
+          # 兜底:ASCII 可打印 + 常见中文标点,防动态文本缺字
+          chars |= {chr(c) for c in range(0x20, 0x7F)}
+          chars |= set("　、。，．·…—～－／｜（）〈〉《》「」『』【】“”‘’※→←↑↓")
+
+          text_file = pathlib.Path("/tmp/uh-web-chars.txt")
+          text_file.write_text("".join(sorted(chars)), encoding="utf-8")
+          print(f"用字提取:{len(chars)} 个字符")
+
+          before_all = after_all = 0
+          for f in sorted((dist / "webfonts").glob("*.woff2")):
+              before = f.stat().st_size
+              tmp = pathlib.Path(str(f) + ".subset")
+              subprocess.run([sys.executable, "-m", "fontTools.subset", str(f),
+                  f"--text-file={text_file}",
+                  "--flavor=woff2",
+                  f"--output-file={tmp}",
+                  "--layout-features=*",
+                  "--no-hinting",
+                  "--drop-tables+=DSIG",
+              ], check=True)
+              tmp.replace(f)
+              after = f.stat().st_size
+              before_all += before
+              after_all += after
+              print(f"  {f.name}:{before // 1024}KB -> {after // 1024}KB")
+          print(f"字体合计:{before_all // 1024}KB -> {after_all // 1024}KB")
+          PY
 
       - name: 推送到 web 分支
         working-directory: 文档/dist

@@ -97,6 +97,16 @@ python3 元素工具.py 改名 旧id 新id     # 同步重命名文档引用与 
 
 详细用法参见 [模板/README.md](模板/README.md)。
 
+## AI 技能
+
+各组件内置 AI 助手技能文件,描述各自的开发规范:
+
+| 技能 | 位置 | 内容 |
+|------|------|------|
+| 模板开发 | `模板/.skills/SKILL.md` | 模板函数、元素系统、字体、网页输出、Typst Universe 发布 |
+| 正文写作 | `文档/.skills/SKILL.md` | 编译命令、章节结构、元素系统用法、语法规范 |
+| 元素系统 | `文档/.opencode/skills/元素系统/SKILL.md` | 元素系统深度说明 |
+
 ## CI/CD
 
 GitCode Actions 会在推送 main 分支或打 tag 时自动编译并发布:

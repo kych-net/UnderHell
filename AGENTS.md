@@ -1,5 +1,11 @@
 # AGENTS.md
 
+| 技能 | 位置 | 内容 |
+|------|------|------|
+| 模板开发 | `模板/.skills/SKILL.md` | 模板函数、元素系统、字体、网页输出、Typst Universe 发布 |
+| 正文写作 | `文档/.skills/SKILL.md` | 编译命令、章节结构、元素系统用法、语法规范 |
+| 元素系统 | `文档/.opencode/skills/元素系统/SKILL.md` | 元素系统深度说明 |
+
 所有思考一律使用中文,别管输入的是什么语言。
 
 架空世界构建仓库(地狱之下 / UnderHell)。正文用 Typst,地图生成器用 Python/Cython。

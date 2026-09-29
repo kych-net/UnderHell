@@ -47,8 +47,8 @@ cd 文档 && make all print screen
 也可直接调用 typst:
 
 ```bash
-typst compile --root .. --font-path fonts 地狱之下.typ 输出.pdf
-typst compile --root .. --font-path fonts --input 元素系统=academic 地狱之下.typ 输出.pdf
+typst compile --root .. --font-path fonts 内容/index.typ 输出.pdf
+typst compile --root .. --font-path fonts --input 元素系统=academic 内容/index.typ 输出.pdf
 ```
 
 ## 元素系统

@@ -45,7 +45,7 @@ make clean      # rm -rf dist
 直接 typst(关键:`--root ..` 使相对路径回到仓库根,`--font-path fonts`):
 
 ```bash
-typst compile --root .. --font-path fonts 地狱之下.typ out.pdf
+typst compile --root .. --font-path fonts 内容/index.typ out.pdf
 ```
 
 ## 元素系统(文档/附件/元素系统.csv)

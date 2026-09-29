@@ -28,4 +28,4 @@ jobs:
           sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-cjk-extra
 
       - name: 运行自动化测试
-        run: bash 文档/test.sh
+        run: bash 文档/脚本/test.sh

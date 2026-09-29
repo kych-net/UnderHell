@@ -75,12 +75,12 @@ id,别名,academic
 
 ## 元素工具
 
-`程序/元素工具/` 下的 Python CLI,用于维护文档与 `元素系统.csv`:
+`程序/元素工具/` 下的 Python CLI,用于维护文档与 `附件/元素系统.csv`:
 
 ```bash
 cd 程序/元素工具
 python3 元素工具.py 扫描              # 查找源文件中的所有元素,标注未收录的
-python3 元素工具.py 补全              # 把缺失元素追加到 元素系统.csv
+python3 元素工具.py 补全              # 把缺失元素追加到 附件/元素系统.csv
 python3 元素工具.py 清理              # 直接删除 CSV 中文档已不再引用的元素
 python3 元素工具.py 改名 旧id 新id     # 同步重命名文档引用与 CSV
 ```

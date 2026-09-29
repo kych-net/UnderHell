@@ -48,7 +48,7 @@ make clean      # rm -rf dist
 typst compile --root .. --font-path fonts 地狱之下.typ out.pdf
 ```
 
-## 元素系统(文档/元素系统.csv)
+## 元素系统(文档/附件/元素系统.csv)
 
 - 每个核心概念用 `#元素[正式名]` 引用(普通系统直接读 ID 值本身)。
 - CSV 只需存非普通系统的映射行(列 `id,system,term`),如 `怪动植物,别名,黑白怪物`、`超级系统,academic,生物能量超级系统`。
@@ -74,7 +74,7 @@ Python/Cython 项目,详见其自带技能:`程序/地图工具/.opencode/skills
 
 ## 语法规范
 
-参考 文档/地狱之下附录.typ
+参考 文档/内容/附录.typ
 
 字数能省就省,不要说废话
 

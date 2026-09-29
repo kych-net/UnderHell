@@ -1,6 +1,8 @@
 # 地狱之下 (UnderHell)
 
-一个架空世界构建项目,包含文档、模板、地图生成器和图片资源。
+一个架空世界构建项目——正文文档、排版模板、程序化地图生成器与图片资源。
+
+正文用 [Typst](https://typst.app),地图生成器用 Python/Cython。主要远程在 **GitCode**,镜像在 [GitHub](https://github.com/kych-net/UnderHell)。
 
 ## 仓库
 
@@ -36,9 +38,10 @@ UnderHell/
 | 普通版 | `make all` | A4 双栏、彩色背景图、深红标题 |
 | 打印版 | `make print` | A4 双栏、无背景图、纯黑标题、宽边距(省墨) |
 | 小屏版 | `make screen` | A5 单栏、保留背景、窄边距、小字号(手机/平板阅读) |
+| 网页版 | `make web` | 单栏 HTML 多页站点(见下节) |
 | 元素系统版 | `make 元素系统 元素系统名=academic` | 指定元素系统编译 |
 
-一次性编译全部三种版本:
+一次性编译全部三种 PDF 版本:
 
 ```bash
 cd 文档 && make all print screen
@@ -50,6 +53,19 @@ cd 文档 && make all print screen
 typst compile --root .. --font-path fonts 内容/index.typ 输出.pdf
 typst compile --root .. --font-path fonts --input 元素系统=academic 内容/index.typ 输出.pdf
 ```
+
+## 网页文档站
+
+`make web` 用 Typst 的 HTML 导出生成多页站点,输出到 `文档/dist/`:
+
+| 产物 | 内容 |
+|---|---|
+| `dist/index.html` | 全量文档(站点首页),`#目录` 前有站内导航卡片 |
+| `dist/<路径>/index.html` | 各章节独立页(如 `怪动植物/`、`特殊能力/仙术/`) |
+| `dist/assets/underhell.css` | 抽出的共享样式 |
+| `dist/webfonts/` | 自托管网页字体 |
+
+页面清单与站点配置写在 `文档/配置.typ`(路径、标题、导航链接、元素系统 CSV)。页面自带右上角导航、浮动目录与阅读器面板(可调字号与字体),纯 CSS 实现。站内导航只出现在网页,PDF 不含。
 
 ## 元素系统
 

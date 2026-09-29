@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>主行星</title><meta name="authors" content="跨越晨昏"><style>/* Alignment */
+mtable.right-align mtd,
+mtable mtd.right-align,
+mtable.left-align mtd.right-align,
+mtable.aligned mtd:nth-child(odd) {
+  justify-items: end;
+  text-align: right;
+}
+mtable.cases mtd,
+mtable.left-align mtd,
+mtable mtd.left-align,
+mtable.aligned mtd:nth-child(even),
+math:is(:not([display])) > mtable.multiline-equation mtd {
+  justify-items: start;
+  text-align: left;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.left-flush {
+  padding-left: 0;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.right-flush {
+  padding-right: 0;
+}
+
+/* Tables */
+mtable {
+  math-style: inherit;
+}
+mtd {
+  math-depth: auto-add;
+  math-style: compact;
+  math-shift: compact;
+}
+
+/* Equations */
+mtable.multiline-equation mtd {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+  padding: 0;
+}
+math > mtable.multiline-equation mtr:not(:last-child) mtd {
+  padding-bottom: 0.5em;
+}
+
+/* Fractions */
+mfrac {
+  padding-inline: 0;
+  margin-inline: 0.1em;
+}
+
+/* Accents */
+mover[accent="true" i] > :first-child {
+  font-feature-settings: "dtls";
+}
+mover.dotted[accent="true" i] > :first-child {
+  font-feature-settings: "dtls" 0;
+}
+
+/* Other rules for scriptlevel, displaystyle and math-shift */
+munder > :nth-child(2),
+munderover > :nth-child(2) {
+  math-shift: compact
+}
+munder[accentunder="true" i] > :not(:first-child),
+mover[accent="true" i] > :not(:first-child) {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+}</style></head><body><header class="uh-cover"><nav class="uh-site"><a class="uh-site-link" href="/" title="主文档">首页</a> <a class="uh-site-link" href="https://gitcode.com/CrossDark/UnderHell/releases/latest" title="下载 PDF(GitCode 最新发行版)" target="_blank">PDF</a> <a class="uh-site-link" href="https://github.com/kych-net/UnderHell" title="GitHub 仓库" target="_blank">GitHub</a> <a class="uh-site-link" href="https://gitcode.com/CrossDark/UnderHell" title="GitCode 仓库" target="_blank">GitCode</a> <a class="uh-site-link uh-reader-toggle" href="#uh-reader" title="阅读器:调整字号与字体">阅读器</a></nav><h1 class="uh-title">主行星</h1><p class="uh-subtitle">一个以调教和侍寝为内核的世界<br><span style="white-space: pre-wrap">&#x20;</span>by 跨越晨昏</p></header><link rel="stylesheet" href="/assets/underhell.css"><p><a href="/#主行星"><span class="uh-element">主行星</span></a>的重力加速度约为 <math><mn>20</mn><msup><mtext>m/s</mtext><mn>2</mn></msup></math>.<s>增加逃离地狱的难度</s></p><div id="主火山" style="margin-left: 8pt"><span style="display: block; font-variant-caps: small-caps"><h4>主火山</h4></span></div><div style="margin-left: 12pt"><p><a href="#主火山"><span class="uh-element">主火山</span></a>矗立于赤道附近的深海之中,整座山体从海底拔起,露出海面的部分形成一座岛屿.山体呈放射状山脊与河谷相间的自然地形,地势从海岸线向中央急剧抬升.<strong><a href="#地狱"><span class="uh-element">地狱</span></a></strong><em>海拔约 12000m</em>位于火山口的<strong>北侧</strong>,是一座独立的高峰;同一座山口的<strong>南侧</strong>是<strong><a href="#深渊"><span class="uh-element">深渊</span></a></strong>–一个火山口湖<em>海拔约 10000m</em>.<a href="#地狱"><span class="uh-element">地狱</span></a>与<a href="#深渊"><span class="uh-element">深渊</span></a>同处一座火山之上,<a href="#地狱"><span class="uh-element">地狱</span></a>位于<a href="#深渊"><span class="uh-element">深渊</span></a>之北,且高出<a href="#深渊"><span class="uh-element">深渊</span></a>约 2000m.</p></div><div style="margin-left: 4pt"><span style="display: block; font-variant-caps: small-caps"><h3>生态系统垂直分布</h3></span></div><div style="margin-left: 8pt"><p><a href="#主火山"><span class="uh-element">主火山</span></a>从深海到峰顶分布着完整的生态系统垂直带谱.岛屿基底为海底火山喷发物,浅海区域环绕着珊瑚礁,海岸线生长红树林,沿海平原覆盖热带雨林,随后随海拔升高依次更替为山地雨林,温带林,针叶林,高山草甸,荒漠与冰雪带.</p></div><div><div style="margin-left: 8pt"><p><strong><span style="font-variant-caps: small-caps">生态系统垂直分布</span></strong></p></div><div style="margin-left: 8pt"><table><thead><tr><th><strong>海拔</strong></th><th><strong>生态系统</strong></th><th><strong>特征</strong></th></tr></thead><tbody><tr><td>海平面以下</td><td>浅海珊瑚礁</td><td>环绕岛屿的浅海, 珊瑚礁发达, 海洋生物丰富</td></tr><tr><td>0–30m</td><td>红树林海岸</td><td>潮间带盐沼, 红树林根系稳固海岸线</td></tr><tr><td>30–500m</td><td>热带雨林平原</td><td>沿海平原, 高温多雨, 物种密度最高</td></tr><tr><td>500–1500m</td><td>低地热带雨林</td><td>低海拔山地雨林, 层次结构复杂</td></tr><tr><td>1500–3000m</td><td>山地雨林</td><td>云雾缭绕, 附生植物丰富</td></tr><tr><td>3000–4500m</td><td>亚热带常绿阔叶林</td><td>气温降低, 常绿乔木为主</td></tr><tr><td>4500–6000m</td><td>亚高山针叶林</td><td>耐寒针叶树种, 林线之上过渡为灌丛</td></tr><tr><td>6000–7500m</td><td>高山灌木草甸</td><td>矮灌木与高山草甸, 花期短暂</td></tr><tr><td>7500–8500m</td><td>高山荒漠</td><td>裸岩与苔藓地衣, 近乎无高等植被</td></tr><tr><td>8500–9700m</td><td>永冻冰雪带</td><td>终年冰雪覆盖, 无生命迹象</td></tr><tr><td>9700–10000m</td><td>火山口岩壁</td><td>裸露岩壁, 硫磺气息, 接近<a href="#地狱"><span class="uh-element">地狱</span></a></td></tr></tbody></table></div></div><div id="地狱" style="margin-left: 12pt"><h5>地狱</h5></div><div style="margin-left: 16pt"><p><a href="#地狱"><span class="uh-element">地狱</span></a>是火山口<strong>北侧</strong>的高峰,海拔约<strong>12000m</strong>,远高于<strong>永冻冰雪带</strong>,常年处于<strong>极寒,低压与强风</strong>之中,气温可低至约<strong><math><mo>−</mo><mn>50</mn><mi>°</mi><mi>𝐶</mi></math></strong>;但山体内<strong>火山地热</strong>沿岩缝与烟道上升,岩壁间存在局部温暖的<strong>地热微环境</strong>.</p></div><div style="margin-left: 8pt"><span style="display: block; font-variant-caps: small-caps"><h4>教育</h4></span></div><div><div style="margin-left: 12pt"><p><strong><span style="font-variant-caps: small-caps">教育阶段</span></strong></p></div><div style="margin-left: 12pt"><table><thead><tr><th><strong>阶段</strong></th><th><strong><a href="/#怪动植物"><span class="uh-element">怪动植物</span></a></strong></th><th><strong><a href="/#嗜血仙子"><span class="uh-element">嗜血仙子</span></a></strong></th></tr></thead><tbody><tr><td>小学<em>分别</em></td><td><strong>调试, 检查与激活</strong>, 融合预装的传承记忆</td><td>无统一小学, 由<strong>母亲</strong>教育, 学习调教, 控制与支配<a href="/#怪动植物"><span class="uh-element">怪动植物</span></a></td></tr><tr><td>中学<em>共同</em></td><td>与<a href="/#嗜血仙子"><span class="uh-element">嗜血仙子</span></a>一同学习; 负责<strong>考核</strong>与<strong>适应性学习</strong>, 被<strong>选择为奴隶</strong></td><td>通常选择与自己<strong>分歧最大, 反抗最强烈</strong>的<a href="/#怪动植物"><span class="uh-element">怪动植物</span></a>以<strong>增加趣味</strong>, 顺从者被<strong>淘汰</strong></td></tr><tr><td>大学</td><td>被<a href="/#嗜血仙子"><span class="uh-element">嗜血仙子</span></a> <strong>进一步调教</strong>, 完成<span class="uh-element" title="未定义">不对称结婚</span>后的适应与规训</td><td>对选中对象进行<strong>针对性的高强度调教</strong></td></tr></tbody></table></div></div><div style="margin-left: 12pt"><p><span class="uh-todo" id="todo-1">各教育阶段的年龄对应与具体学制, 以及<a href="/#怪动植物"><span class="uh-element">怪动植物</span></a>小学阶段的详细内容.</span></p></div><div id="深渊" style="margin-left: 12pt"><h5>深渊</h5></div><div style="margin-left: 16pt"><p><strong><a href="#深渊"><span class="uh-element">深渊</span></a></strong>是火山口<strong>南侧</strong>的<strong>火山口湖</strong>,海拔约<strong>10000m</strong>,位于永冻冰雪带之上;但<strong>湖底地热</strong>使湖水深处常年恒定<math><mn>293</mn><mspace width="0.2222em"/><mtext>K</mtext></math>,湖岸岩缝间亦有<strong>地热烟道</strong>升腾热气,形成局部温暖地带.</p></div><div style="margin-left: 0pt"><span style="display: block; font-variant-caps: small-caps"><h2>特殊区域</h2></span></div><div class="uh-tipbox"><div class="uh-tipbox-title">特殊区域</div><div style="margin-left: 4pt"><ul><li><strong><span class="uh-element" title="未定义">超级系统节点</span></strong>:<a href="/#特殊系统"><span class="uh-element">特殊系统</span></a>在地表的能量汇聚点, 多位于火山与深海热泉附近</li><li><strong><a href="/#怪植物"><span class="uh-element">怪植物</span></a>密集区</strong>: 赤道群岛与<a href="#主火山"><span class="uh-element">主火山</span></a>低海拔区域,<a href="/#怪植物"><span class="uh-element">怪植物</span></a>大量生长</li><li><strong>深海热泉区</strong>: 海底火山带的喷口, 孕育独特生态系统</li></ul></div></div><footer class="uh-icp"><a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2026033372号-1</a></footer><div class="uh-reader" id="uh-reader"><a class="uh-reader-backdrop" href="#uh-reader-off" title="关闭"></a><div class="uh-reader-panel"><div class="uh-reader-head">阅读设置 <a class="uh-reader-close" href="#uh-reader-off" title="关闭">✕</a></div><div class="uh-reader-row"><span class="uh-reader-label">字号</span> <label class="uh-reader-opt"><input type="radio" name="uh-fs" id="uh-fs-0"> 小</label> <label class="uh-reader-opt"><input type="radio" name="uh-fs" id="uh-fs-1" checked="checked"> 中</label> <label class="uh-reader-opt"><input type="radio" name="uh-fs" id="uh-fs-2"> 大</label> <label class="uh-reader-opt"><input type="radio" name="uh-fs" id="uh-fs-3"> 特大</label></div><div class="uh-reader-row"><span class="uh-reader-label">字体</span> <label class="uh-reader-opt"><input type="radio" name="uh-ft" id="uh-ft-0" checked="checked"> 楷体</label> <label class="uh-reader-opt"><input type="radio" name="uh-ft" id="uh-ft-1"> 宋体</label> <label class="uh-reader-opt"><input type="radio" name="uh-ft" id="uh-ft-2"> 黑体</label></div></div></div></body></html><script>(function(){var uhTocToggle=1;document.addEventListener('click', function(e){var head = e.target.closest('.uh-toc-head');if (head) {var toc = head.closest('.uh-toc');toc.classList.toggle('uh-open');head.setAttribute('aria-expanded', toc.classList.contains('uh-open'));return;}var tr = e.target.closest('.uh-comment-trigger');if (tr) {var panel = tr.nextElementSibling;if (panel) panel.classList.toggle('uh-open');}});})();</script>

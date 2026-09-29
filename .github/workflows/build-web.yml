@@ -55,8 +55,10 @@ jobs:
           import html, pathlib, subprocess, sys
 
           dist = pathlib.Path("dist")
-          # 以编译产物 index.html 为准:CSS/交互脚本已注入其中,含其用字
-          text = (dist / "index.html").read_text(encoding="utf-8")
+          # 以全部产物 HTML 为准(主页 + 各独立页),取并集用字
+          text = "\n".join(
+              p.read_text(encoding="utf-8") for p in sorted(dist.rglob("*.html"))
+          )
           chars = set(text) | set(html.unescape(text))
           # 兜底:ASCII 可打印 + 常见中文标点,防动态文本缺字
           chars |= {chr(c) for c in range(0x20, 0x7F)}

@@ -6,7 +6,7 @@
 | 正文写作 | `文档/.skills/SKILL.md` | 编译命令、章节结构、元素系统用法、语法规范 |
 | 元素系统 | `文档/.opencode/skills/元素系统/SKILL.md` | 元素系统深度说明 |
 
-所有思考一律使用中文,别管输入的是什么语言。
+所有思考一律强制使用中文,别管输入的是什么语言。
 
 架空世界构建仓库(地狱之下 / UnderHell)。正文用 Typst,地图生成器用 Python/Cython。
 所有远程托管在[GitCode](`gitcode.com/CrossDark/*`)和[GitHub](https://github.com/kych-net/UnderHell)上

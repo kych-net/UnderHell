@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>主行星</title><meta name="authors" content="跨越晨昏"><style>/* Alignment */
+mtable.right-align mtd,
+mtable mtd.right-align,
+mtable.left-align mtd.right-align,
+mtable.aligned mtd:nth-child(odd) {
+  justify-items: end;
+  text-align: right;
+}
+mtable.cases mtd,
+mtable.left-align mtd,
+mtable mtd.left-align,
+mtable.aligned mtd:nth-child(even),
+math:is(:not([display])) > mtable.multiline-equation mtd {
+  justify-items: start;
+  text-align: left;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.left-flush {
+  padding-left: 0;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.right-flush {
+  padding-right: 0;
+}
+
+/* Tables */
+mtable {
+  math-style: inherit;
+}
+mtd {
+  math-depth: auto-add;
+  math-style: compact;
+  math-shift: compact;
+}
+
+/* Equations */
+mtable.multiline-equation mtd {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+  padding: 0;
+}
+math > mtable.multiline-equation mtr:not(:last-child) mtd {
+  padding-bottom: 0.5em;
+}
+
+/* Fractions */
+mfrac {
+  padding-inline: 0;
+  margin-inline: 0.1em;
+}
+
+/* Accents */
+mover[accent="true" i] > :first-child {
+  font-feature-settings: "dtls";
+}
+mover.dotted[accent="true" i] > :first-child {
+  font-feature-settings: "dtls" 0;
+}
+
+/* Other rules for scriptlevel, displaystyle and math-shift */
+munder > :nth-child(2),
+munderover > :nth-child(2) {
+  math-shift: compact
+}
+munder[accentunder="true" i] > :not(:first-child),
+mover[accent="true" i] > :not(:first-child) {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+}</style></head><body><header class="uh-cover"><nav class="uh-site"><a class="uh-site-link" href="/" title="主文档">首页</a> <a class="uh-site-link" href="https://gitcode.com/CrossDark/UnderHell/releases/latest" title="下载 PDF(GitCode 最新发行版)" target="_blank">PDF</a> <a class="uh-site-link" href="https://github.com/kych-net/UnderHell" title="GitHub 仓库" target="_blank">GitHub</a> <a class="uh-site-link" href="https://gitcode.com/CrossDark/UnderHell" title="GitCode 仓库" target="_blank">GitCode</a> <a class="uh-site-link uh-reader-toggle" href="#uh-reader" title="阅读器:调整字号与字体">阅读器</a></nav><h1 class="uh-title">主行星</h1><p class="uh-subtitle">不对称的调教,侍寝与奴役<br><span style="white-space: pre-wrap">&#x20;</span>by 跨越晨昏</p></header><link rel="stylesheet" href="/assets/underhell.css">
+<p><a href="/#主行星"><span class="uh-element">主行星</span></a>的半径约 <math><mn>1.5</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>4</mn></msup><mspace width="0.2222em"/><mtext>km</mtext></math>,重力加速度约为 <math><mn>20</mn><msup><mtext>m/s</mtext><mn>2</mn></msup></math>.<span class="uh-comment"><span class="uh-comment-trigger" tabindex="0">💬</span> <span class="uh-comment-panel">增加逃离地狱的难度</span></span></p><div style="margin-left: 0pt"><span style="display: block; font-variant-caps: small-caps"><h2>主火山</h2></span></div><div style="margin-left: 0pt"><span style="display: block; font-variant-caps: small-caps"><h2>大气</h2></span></div><div style="margin-left: 4pt"><span style="display: block; font-variant-caps: small-caps"><h3>成分</h3></span></div><div style="margin-left: 8pt"><p><math><msub><mtext>N</mtext><mn>2</mn></msub></math> 约 78.1%,<math><msub><mtext>O</mtext><mn>2</mn></msub></math> 约 20.95%,其余为氩、二氧化碳等,摩尔质量约 <math><mn>0.029</mn><mspace width="0.2222em"/><mtext>kg/mol</mtext></math>.</p></div><div></div><div style="margin-left: 4pt"><span style="display: block; font-variant-caps: small-caps"><h3>性质</h3></span></div><div style="margin-left: 8pt"><p>海平面气压约 <math><mn>1.013</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>5</mn></msup><mspace width="0.2222em"/><mtext>Pa</mtext></math>.取 <math><mi>𝛾</mi><mo>=</mo><mn>1.4</mn></math>,声速 <math><mi>𝑎</mi><mo>=</mo><msqrt><mi>𝛾</mi><mi>𝑅</mi><mi>𝑇</mi><mi>/</mi><mi>𝑀</mi></msqrt></math>:</p></div><div><div style="margin-left: 8pt"><p><strong><span style="font-variant-caps: small-caps">其它大气参数</span></strong></p></div><div style="margin-left: 8pt"><table><thead><tr><th><strong>参数</strong></th><th><strong>数值</strong></th></tr></thead><tbody><tr><td>海平面声速</td><td>赤道 <math><mn>347</mn><mspace width="0.2222em"/><mtext>m/s</mtext></math>,极点 <math><mn>310</mn><mspace width="0.2222em"/><mtext>m/s</mtext></math></td></tr><tr><td>对流层顶声速</td><td><math><mn>295</mn><mspace width="0.2222em"/><mtext>m/s</mtext></math></td></tr><tr><td>对流层顶气压</td><td>赤道 <math><mn>3.08</mn><mspace width="0.2222em"/><mtext>kPa</mtext></math>,极点 <math><mn>33.8</mn><mspace width="0.2222em"/><mtext>kPa</mtext></math></td></tr><tr><td>气压标高</td><td>海平面 <math><mn>4.30</mn><mspace width="0.2222em"/><mtext>km</mtext></math>,对流层顶 <math><mn>3.11</mn><mspace width="0.2222em"/><mtext>km</mtext></math></td></tr><tr><td>大气总质量</td><td><math><mn>1.43</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>19</mn></msup><mspace width="0.2222em"/><mtext>kg</mtext></math></td></tr></tbody></table></div></div><div style="margin-left: 8pt"><p>对流层递减率约 <math><mn>6.5</mn><mspace width="0.2222em"/><mtext>K/km</mtext></math>,低于干绝热递减率 <math><mn>19.9</mn><mspace width="0.2222em"/><mtext>K/km</mtext></math>,大气层结稳定;对流层顶温度约 <math><mn>216.65</mn><mspace width="0.2222em"/><mtext>K</mtext></math>,赤道海平面约 <math><mn>300</mn><mspace width="0.2222em"/><mtext>K</mtext></math>,极点海平面约 <math><mn>240</mn><mspace width="0.2222em"/><mtext>K</mtext></math>,故赤道对流层顶高约 <math><mn>12.8</mn><mspace width="0.2222em"/><mtext>km</mtext></math>,极点约 <math><mn>3.6</mn><mspace width="0.2222em"/><mtext>km</mtext></math>.</p></div><div style="margin-left: 8pt"><p>温度与密度随高度分层,<math><mi>ℎ</mi></math> 以米计:</p></div><div style="margin-left: 8pt"><p><strong>赤道</strong></p></div><math display="block"><mi>𝑇</mi><mrow><mo>(</mo><mi>ℎ</mi><mo>)</mo></mrow><mo>=</mo><mrow><mo>{</mo><mtable class="cases"><mtr><mtd><mn>300</mn><mo>−</mo><mn>6.5</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup><mi>ℎ</mi></mtd><mtd><mspace width="1em"/><mspace width="1em"/><mi>ℎ</mi><mo>≤</mo><mn>1.282</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>4</mn></msup></mtd></mtr><mtr><mtd><mn>216.65</mn></mtd><mtd><mspace width="1em"/><mspace width="1em"/><mi>ℎ</mi><mo>></mo><mn>1.282</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>4</mn></msup></mtd></mtr></mtable></mrow></math><math display="block"><mi>𝜌</mi><mrow><mo>(</mo><mi>ℎ</mi><mo>)</mo></mrow><mo>=</mo><mrow><mo>{</mo><mtable class="cases"><mtr><mtd><mn>1.18</mn><msup><mrow><mo>(</mo><mrow><mi>𝑇</mi><mrow><mo>(</mo><mi>ℎ</mi><mo>)</mo></mrow><mi>/</mi><mn>300</mn></mrow><mo>)</mo></mrow><mn>9.733</mn></msup></mtd><mtd><mspace width="1em"/><mspace width="1em"/><mi>ℎ</mi><mo>≤</mo><mn>1.282</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>4</mn></msup></mtd></mtr><mtr><mtd><mn>0.0497</mn><mo form="prefix" lspace="0.16666666666666666em" rspace="0em">exp</mo><mrow><mo>(</mo><mrow><mo>−</mo><mrow><mo>(</mo><mrow><mi>ℎ</mi><mo>−</mo><mn>1.282</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><mo>)</mo></mrow><mi>/</mi><mn>3.11</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>3</mn></msup></mrow><mo>)</mo></mrow></mtd><mtd><mspace width="1em"/><mspace width="1em"/><mi>ℎ</mi><mo>></mo><mn>1.282</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>4</mn></msup></mtd></mtr></mtable></mrow></math><div style="margin-left: 8pt"><p><strong>极点</strong></p></div><math display="block"><mi>𝑇</mi><mrow><mo>(</mo><mi>ℎ</mi><mo>)</mo></mrow><mo>=</mo><mrow><mo>{</mo><mtable class="cases"><mtr><mtd><mn>240</mn><mo>−</mo><mn>6.5</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup><mi>ℎ</mi></mtd><mtd><mspace width="1em"/><mspace width="1em"/><mi>ℎ</mi><mo>≤</mo><mn>3.592</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>3</mn></msup></mtd></mtr><mtr><mtd><mn>216.65</mn></mtd><mtd><mspace width="1em"/><mspace width="1em"/><mi>ℎ</mi><mo>></mo><mn>3.592</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>3</mn></msup></mtd></mtr></mtable></mrow></math><math display="block"><mi>𝜌</mi><mrow><mo>(</mo><mi>ℎ</mi><mo>)</mo></mrow><mo>=</mo><mrow><mo>{</mo><mtable class="cases"><mtr><mtd><mn>1.47</mn><msup><mrow><mo>(</mo><mrow><mi>𝑇</mi><mrow><mo>(</mo><mi>ℎ</mi><mo>)</mo></mrow><mi>/</mi><mn>240</mn></mrow><mo>)</mo></mrow><mn>9.733</mn></msup></mtd><mtd><mspace width="1em"/><mspace width="1em"/><mi>ℎ</mi><mo>≤</mo><mn>3.592</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>3</mn></msup></mtd></mtr><mtr><mtd><mn>0.543</mn><mo form="prefix" lspace="0.16666666666666666em" rspace="0em">exp</mo><mrow><mo>(</mo><mrow><mo>−</mo><mrow><mo>(</mo><mrow><mi>ℎ</mi><mo>−</mo><mn>3.592</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>3</mn></msup></mrow><mo>)</mo></mrow><mi>/</mi><mn>3.11</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>3</mn></msup></mrow><mo>)</mo></mrow></mtd><mtd><mspace width="1em"/><mspace width="1em"/><mi>ℎ</mi><mo>></mo><mn>3.592</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>3</mn></msup></mtd></mtr></mtable></mrow></math><div style="margin-left: 8pt"><p>其中对流层递减率 <math><mn>6.5</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup><mspace width="0.2222em"/><mtext>K/m</mtext></math>,密度指数 <math><mn>9.733</mn><mo>=</mo><mi>𝑔</mi><mi>𝑀</mi><mi>/</mi><mrow><mo>(</mo><mrow><mi>𝑅</mi><mi>𝐿</mi></mrow><mo>)</mo></mrow><mo>−</mo><mn>1</mn></math>,平流层标高 <math><mn>3.11</mn><mo lspace="0.2222222222222222em" rspace="0.2222222222222222em">×</mo><msup><mn>10</mn><mn>3</mn></msup><mspace width="0.2222em"/><mtext>m</mtext><mo>=</mo><mi>𝑅</mi><msub><mi>𝑇</mi><mi>𝑡</mi></msub><mi>/</mi><mrow><mo>(</mo><mrow><mi>𝑔</mi><mi>𝑀</mi></mrow><mo>)</mo></mrow></math>,<math><mi>𝑔</mi><mo>=</mo><mn>20</mn><msup><mtext>m/s</mtext><mn>2</mn></msup></math>,<math><mi>𝑀</mi><mo>=</mo><mn>0.029</mn><mspace width="0.2222em"/><mtext>kg/mol</mtext></math>,<math><mi>𝑅</mi><mo>=</mo><mn>8.314</mn><mspace width="0.2222em"/><mtext>J/(mol K)</mtext></math>,<math><msub><mi>𝑇</mi><mi>𝑡</mi></msub><mo>=</mo><mn>216.65</mn><mspace width="0.2222em"/><mtext>K</mtext></math>.</p></div><div><div style="margin-left: 8pt"><p><strong><span style="font-variant-caps: small-caps">赤道大气温度与密度</span></strong></p></div><div style="margin-left: 8pt"><table><thead><tr><th><strong>高度 m</strong></th><th><strong>温度 K</strong></th><th><strong>密度 <math><msup><mtext>kg/m</mtext><mn>3</mn></msup></math></strong></th></tr></thead><tbody><tr><td>0</td><td>300.0</td><td>1.18</td></tr><tr><td>1000</td><td>293.5</td><td>0.953</td></tr><tr><td>2000</td><td>287.0</td><td>0.767</td></tr><tr><td>5000</td><td>267.5</td><td>0.387</td></tr><tr><td>8500</td><td>244.8</td><td>0.163</td></tr><tr><td>10000</td><td>235.0</td><td>0.110</td></tr><tr><td>12000</td><td>222.0</td><td>0.0630</td></tr><tr><td>15000</td><td>216.7</td><td>0.0247</td></tr><tr><td>20000</td><td>216.7</td><td>0.00494</td></tr><tr><td>25000</td><td>216.7</td><td>0.000990</td></tr><tr><td>30000</td><td>216.7</td><td>0.000198</td></tr></tbody></table></div></div><div><div style="margin-left: 8pt"><p><strong><span style="font-variant-caps: small-caps">极点大气温度与密度</span></strong></p></div><div style="margin-left: 8pt"><table><thead><tr><th><strong>高度 m</strong></th><th><strong>温度 K</strong></th><th><strong>密度 <math><msup><mtext>kg/m</mtext><mn>3</mn></msup></math></strong></th></tr></thead><tbody><tr><td>0</td><td>240.0</td><td>1.47</td></tr><tr><td>1000</td><td>233.5</td><td>1.13</td></tr><tr><td>2000</td><td>227.0</td><td>0.855</td></tr><tr><td>5000</td><td>216.7</td><td>0.345</td></tr><tr><td>8500</td><td>216.7</td><td>0.112</td></tr><tr><td>10000</td><td>216.7</td><td>0.0692</td></tr><tr><td>12000</td><td>216.7</td><td>0.0364</td></tr><tr><td>15000</td><td>216.7</td><td>0.0139</td></tr><tr><td>20000</td><td>216.7</td><td>0.00278</td></tr><tr><td>25000</td><td>216.7</td><td>0.000556</td></tr><tr><td>30000</td><td>216.7</td><td>0.000111</td></tr></tbody></table></div></div><div style="margin-left: 8pt"><p><strong>温度剖面</strong> ━ 赤道　━ 极点 ┄ 对流层顶</p></div><div style="margin-left: 8pt"><p><strong>密度剖面</strong> ━ 赤道　━ 极点 ┄ 对流层顶</p></div><footer class="uh-icp"><a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2026033372号-1</a></footer><div class="uh-reader" id="uh-reader"><a class="uh-reader-backdrop" href="#uh-reader-off" title="关闭"></a><div class="uh-reader-panel"><div class="uh-reader-head">阅读设置 <a class="uh-reader-close" href="#uh-reader-off" title="关闭">✕</a></div><div class="uh-reader-row"><span class="uh-reader-label">字号</span> <label class="uh-reader-opt"><input type="radio" name="uh-fs" id="uh-fs-0"> 小</label> <label class="uh-reader-opt"><input type="radio" name="uh-fs" id="uh-fs-1" checked="checked"> 中</label> <label class="uh-reader-opt"><input type="radio" name="uh-fs" id="uh-fs-2"> 大</label> <label class="uh-reader-opt"><input type="radio" name="uh-fs" id="uh-fs-3"> 特大</label></div><div class="uh-reader-row"><span class="uh-reader-label">字体</span> <label class="uh-reader-opt"><input type="radio" name="uh-ft" id="uh-ft-0" checked="checked"> 楷体</label> <label class="uh-reader-opt"><input type="radio" name="uh-ft" id="uh-ft-1"> 宋体</label> <label class="uh-reader-opt"><input type="radio" name="uh-ft" id="uh-ft-2"> 黑体</label></div></div></div></body></html>
+<script>(function(){var uhTocToggle=1;document.addEventListener('click', function(e){var head = e.target.closest('.uh-toc-head');if (head) {var toc = head.closest('.uh-toc');toc.classList.toggle('uh-open');head.setAttribute('aria-expanded', toc.classList.contains('uh-open'));return;}var tr = e.target.closest('.uh-comment-trigger');if (tr) {var panel = tr.nextElementSibling;if (panel) panel.classList.toggle('uh-open');}});})();</script>

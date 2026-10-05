@@ -31,11 +31,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: 初始化所需子模块(文档/模板)
-        run: git submodule update --init --depth 1 文档 模板
+      # 素材 必须一起检出:内容/index.typ 的封面图取自 素材/图片/。
+      - name: 初始化所需子模块(文档/模板/素材)
+        run: git submodule update --init --depth 1 文档 模板 素材
       - name: 拉取字体(LFS)
         run: git lfs pull
         working-directory: 模板
+      - name: 拉取封面图(LFS)
+        run: git lfs pull
+        working-directory: 素材
 
       - name: 编译网页并注入样式/脚本(make web)
         working-directory: 文档
